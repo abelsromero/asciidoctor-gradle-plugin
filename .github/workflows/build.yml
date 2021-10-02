@@ -4,7 +4,7 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v1
       - uses: actions/setup-java@v2
         with:
           distribution: temurin
@@ -38,7 +38,7 @@ jobs:
       matrix:
         java: [ 11, 17 ]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v1
         # use a short path to avoid exceeding the path limit on Windows... sigh
         with:
           path: 'w'
@@ -97,7 +97,7 @@ jobs:
         java: [ 8, 11, 17 ]
     runs-on: ${{ matrix.os }}
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v1
     - uses: actions/setup-java@v2
       with:
         distribution: temurin
