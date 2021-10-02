@@ -1,3 +1,20 @@
+plugins {
+    id 'com.gradle.enterprise' version '3.7'
+}
+
+gradleEnterprise {
+    buildScan {
+        termsOfServiceUrl = 'https://gradle.com/terms-of-service'
+        termsOfServiceAgree = 'yes'
+
+        buildFinished { buildResult ->
+            buildScanPublished { scan ->
+                ['curl', '-s', '-d', "message=asciidoctor-gradle-plugin build scan: ${scan.buildScanUri}", 'https://webhooks.gitter.im/e/6ba348eef26407adc22a'].execute()
+            }
+        }
+    }
+}
+
 rootProject.name = 'asciidoctor-gradle-plugin'
 
 //include 'kindlegen-gradle'

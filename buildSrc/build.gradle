@@ -10,8 +10,8 @@ repositories {
 }
 
 dependencies {
-    compile localGroovy()
-    compile gradleApi()
-    compile "gradle.plugin.org.ysb33r.gradle:nodejs-gradle-plugin:${gradleProperties.nodejsGradleVersion}"
+    implementation localGroovy()
+    implementation gradleApi()
+    implementation "gradle.plugin.org.ysb33r.gradle:nodejs-gradle-plugin:${gradleProperties.nodejsGradleVersion}"
 }
 
