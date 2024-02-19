@@ -21,9 +21,11 @@ jobs:
           cd docs
           ./gradlew --console=plain -q combineDocs
       - name: Publish documentation
+        env:
+          CI_BRANCH: ${{ github.ref }}
         run: |
           cd docs
-          ./gradlew --console=plain --info :antora:publishDocs :gh-pages:publishDocs \
+          ./gradlew --console=plain --info :gh-pages:publishDocs \
             -Dorg.ajoberstar.grgit.auth.username=${{ secrets.GITHUB_PUBLISH_USER }} \
             -Dorg.ajoberstar.grgit.auth.password=${{ secrets.GITHUB_PUBLISH_KEY }} \
             -Dorg.ajoberstar.grgit.auth.force=hardcoded
