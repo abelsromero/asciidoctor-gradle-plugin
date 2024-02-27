@@ -9,7 +9,6 @@ permissions:
 jobs:
   push-docs:
     runs-on: ubuntu-latest
-    if: github.repository == 'asciidoctor/asciidoctor-gradle-plugin'
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v4
